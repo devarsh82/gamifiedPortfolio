@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com";
 import DOMPurify from "dompurify";
 
 export default function ContactMenu() {
@@ -20,43 +19,6 @@ export default function ContactMenu() {
       ...prevFormData,
       [name]: value,
     }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validateErrors = validateForm();
-    if (Object.keys(validateErrors).length > 0) {
-      setErrors(validateErrors);
-      return;
-    }
-
-    setIsLoading(true);
-
-    const { name, email, message } = formData;
-    const sanitizedData = {
-      name: "Name: " + DOMPurify.sanitize(name),
-      email: "Email: " + DOMPurify.sanitize(email),
-      message: "Message: " + DOMPurify.sanitize(message),
-    };
-
-    const serviceID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const userID = process.env.REACT_APP_EMAILJS_USER_ID;
-
-    emailjs
-      .send(serviceID, templateID, sanitizedData, userID)
-      .then((response) => {
-        console.log("Email is sent successfully!", response.text);
-        setFormData(initialState);
-        setErrors({});
-        setIsSent(true);
-      })
-      .catch((error) => {
-        console.error("Email sending failed", error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
   };
 
   const validateForm = () => {
@@ -85,6 +47,49 @@ export default function ContactMenu() {
     return emailRegex.test(value);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const validateErrors = validateForm();
+    if (Object.keys(validateErrors).length > 0) {
+      setErrors(validateErrors);
+      return;
+    }
+
+    setIsLoading(true);
+
+    const { name, email, message } = formData;
+    const sanitizedData = {
+      name: DOMPurify.sanitize(name),
+      email: DOMPurify.sanitize(email),
+      message: DOMPurify.sanitize(message),
+    };
+
+
+    const formEndpoint = "https://formspree.io/f/mkgbeleg";
+
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(sanitizedData),
+      });
+
+      if (response.ok) {
+        console.log("Message sent!");
+        setIsSent(true);
+        setFormData(initialState);
+      } else {
+        console.error("Form submission failed");
+      }
+    } catch (err) {
+      console.error("Error submitting form", err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="contact-menu">
       {!isSent && (
@@ -105,6 +110,7 @@ export default function ContactMenu() {
               <span className="error-message">{errors.name}</span>
             )}
           </div>
+
           <div className="form-group">
             <label htmlFor="email">Email:</label>
             <input
@@ -121,6 +127,7 @@ export default function ContactMenu() {
               <span className="error-message">{errors.email}</span>
             )}
           </div>
+
           <div className="form-group">
             <label htmlFor="message">Message:</label>
             <textarea
@@ -136,11 +143,13 @@ export default function ContactMenu() {
               <span className="error-message">{errors.message}</span>
             )}
           </div>
+
           <button type="submit" disabled={isLoading}>
             {isLoading ? "SENDING..." : "SUBMIT"}
           </button>
         </form>
       )}
+
       {isSent && (
         <div className="success-message">
           <p>SUCCESS!</p>
