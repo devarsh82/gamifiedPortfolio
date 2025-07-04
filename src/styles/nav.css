@@ -82,7 +82,7 @@ a {
 /* when you hover the entire link, recolor the icon */
 .nav-link:hover .nav-icon {
   /* example: brighten and tint */
-  filter: invert(46%) sepia(98%) saturate(7434%) hue-rotate(1deg) brightness(100%) contrast(105%);
+  filter: invert(36%) sepia(98%) saturate(7434%) hue-rotate(1deg) brightness(100%) contrast(105%);
   
 }
 

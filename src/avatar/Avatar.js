@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import avatarImage from "../assets/pngtree_1751548137853_ChatGPT Image Jul 3, 2025, 04_58_54 PM.png";
+import avatarImage from "../assets/devAvatar.png";
 import "../styles/avatar.css";
 
 const Avatar = ({ page }) => {
