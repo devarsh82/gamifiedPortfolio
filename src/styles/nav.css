@@ -1,0 +1,93 @@
+.nav {
+  position: fixed;
+  display: flex;
+  align-items: flex-start;
+  top: 3rem;
+  gap: 2rem;
+  right: 5%;
+  
+}
+
+/* .nav-about {
+  transform: translateX(-1.56rem);
+}
+.nav-skills {
+  transform: translateX(-6.25rem);
+}
+.nav-projects {
+  transform: translateX(-10.94rem);
+}
+.nav-contact {
+  transform: translateX(-15.62rem);
+} */
+
+a {
+  width: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  
+}
+
+.page-title {
+  font-size: 0.975rem;
+  color: white;
+  cursor: default;
+}
+
+.nav-link {
+  opacity: 0.7;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  
+}
+
+.nav-link.current {
+  opacity: 1;
+}
+
+@media (max-width: 1100px) {
+  .nav-about,
+  .nav-skills,
+  .nav-projects,
+  .nav-contact {
+    transform: translateX(0);
+  }
+  .nav {
+    top: calc(100vh - 8rem);
+    transform: translateX(-50%);
+  }
+  .nav-link {
+    width: 2rem;
+  }
+  .nav-link img {
+    width: 2rem;
+  }
+  .page-title {
+    display: none;
+  }
+}
+/* give the icon a smooth transition */
+.nav-icon {
+  transition: filter 0.3s ease, opacity 0.3s ease;
+  /* start it slightly muted if you like */
+  filter: brightness(0.9);
+  
+}
+
+/* when you hover the entire link, recolor the icon */
+.nav-link:hover .nav-icon {
+  /* example: brighten and tint */
+  filter: invert(46%) sepia(98%) saturate(7434%) hue-rotate(1deg) brightness(100%) contrast(105%);
+  
+}
+
+/* style for the “current” page icon */
+.nav-link.current .nav-icon {
+  filter: brightness(1.3);
+  filter: invert(48%) sepia(88%) saturate(518%) hue-rotate(87deg) brightness(1.05);
+}
