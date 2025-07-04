@@ -153,7 +153,7 @@ export default function ContactMenu() {
       {isSent && (
         <div className="success-message">
           <p>SUCCESS!</p>
-          <p>Your message has been successfully sent!</p>
+          <p>Your message has been successfully sent to Devarsh!</p>
           <p>You can safely leave this page.</p>
         </div>
       )}
