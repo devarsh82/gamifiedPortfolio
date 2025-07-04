@@ -10,7 +10,7 @@ const Background = () => {
       <video
         playsInline
         autoPlay
-        muted
+        // muted
         loop
         preload="auto"
         id="bg"

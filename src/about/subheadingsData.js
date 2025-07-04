@@ -43,7 +43,7 @@ const subheadingsData = {
       ),
     },
     {
-      title: "👾 Level 3 — React Fundamentals",
+      title: "👾 Level 3 — React Fundamentals",
       content: (
         <>
           <p>Made a Movie Search App using the OMDB API.</p>

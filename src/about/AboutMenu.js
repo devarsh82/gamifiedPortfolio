@@ -59,15 +59,16 @@ export default class AboutMenu extends Component {
             <h3>{activeMenuTitle}</h3>
           </div>
           {subheadings.map((subheading, index) => (
-            <AboutSubheading
-              key={index}
-              title={subheading.title}
-              content={subheading.content}
-              active={activeSubheading === index + 1}
-              onClick={() => this.handleSubheadingClick(index + 1)}
-              menuItem={activeMenuItem}
-            />
-          ))}
+  <AboutSubheading
+    key={`menu${activeMenuItem}-sub${index}-active${activeSubheading}`}
+    title={subheading.title}
+    content={subheading.content}
+    active={activeSubheading === index + 1}
+    onClick={() => this.handleSubheadingClick(index + 1)}
+    menuItem={activeMenuItem}
+  />
+))}
+
         </div>
       </>
     );
