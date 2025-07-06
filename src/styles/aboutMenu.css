@@ -141,7 +141,7 @@
   100% {
     opacity: 1;
     transform: translateX(0);
-    text-shadow: 0 0 8px, 0 0 12px;
+    text-shadow: 0 0 0px, 0 0 2px;
   }
 }
 
@@ -180,7 +180,7 @@
   content: "◀";
   position: absolute;
   left: 0.8rem;
-  top: 18%;
+  top: 30%;
   transform: translateY(-50%);
   font-size: 1.1rem;
   color: var(--purple);
@@ -246,9 +246,9 @@
   content: "◀";
   position: absolute;
   left: 0.8rem;
-  top: 25%;
+  top: 30%;
   transform: translateY(-50%);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--cyan);
   opacity: 0;
   animation: arrowGlow 0.5s ease-out 0.4s forwards;
