@@ -4,13 +4,12 @@ import projectThree from "../assets/project-3.png";
 
 const projects = {
   1: {
-    title: "PRISCRIPTO",
+    title: "PRESCRIPTO",
     image: projectOne,
     description: (
       <>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        A user-friendly web app that allows doctors to generate and manage digital prescriptions efficiently. It streamlines patient data entry, prescription creation, and record management with a simple and intuitive interface.
         </p>
       </>
     ),
