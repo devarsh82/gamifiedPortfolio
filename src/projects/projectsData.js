@@ -14,7 +14,7 @@ const projects = {
         </p>
       </>
     ),
-    github: "https://github.com",
+    github: "https://github.com/devarsh82/prescripto_frontend",
     demo: "https://netlify.com",
   },
   2: {
@@ -28,7 +28,7 @@ const projects = {
         </p>
       </>
     ),
-    github: "https://github.com",
+    github: "https://github.com/devarsh82",
     demo: "https://netlify.com",
   },
   3: {
@@ -42,7 +42,7 @@ const projects = {
         </p>
       </>
     ),
-    github: "https://github.com",
+    github: "https://github.com/devarsh82",
     demo: "https://netlify.com",
   },
 };
