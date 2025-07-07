@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/background.css";
-import video from "../assets/bg-universe.mp4";
+import video from "../assets/bg-universe.webm";
 import fallbackImage from "../assets/fallback-image.png";
 
 const Background = () => {
@@ -16,7 +16,7 @@ const Background = () => {
         id="bg"
         poster={fallbackImage}
       >
-        <source src={video} type="video/mp4" />
+        <source src={video} type="video/webm" />
       </video>
     </>
   );
