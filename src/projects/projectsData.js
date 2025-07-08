@@ -13,7 +13,7 @@ const projects = {
         </p>
       </>
     ),
-    github: "https://github.com/devarsh82/prescripto_frontend",
+    github:"https://github.com/devarsh82/prescripto_frontend",
     demo: "https://netlify.com",
   },
   2: {
